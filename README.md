@@ -1,6 +1,8 @@
 # TFGRPO - Training-Free GRPO Experience Server
 
-MCP server that implements the Training-Free GRPO paper's approach to learning from code-fixing episodes. Captures failure/success contrasts, extracts patterns via Kimi LLM, and retrieves them for future use.
+MCP server that implements Tencent's Training-Free GRPO paper approach for RL for frozen models. Captures failure/success contrasts, extracts patterns via an openrouter LLM, and retrieves them for future use.
+
+[Link to paper](https://arxiv.org/pdf/2510.08191)
 
 ## Installation
 
@@ -89,6 +91,17 @@ pull_experiences(query="async timeout", limit=5)
 3. **Extract** - Kimi LLM extracts the pattern that made the difference
 4. **Store** - Save minimal JSON with pattern + keywords + insight
 5. **Retrieve** - Keyword search finds relevant past experiences
+
+## MCP Flow (Training-Free GRPO)
+
+This server follows the paper’s Training-Free GRPO idea: keep the base model frozen and shift behavior by updating an external experience library that becomes a token prior for future calls.
+
+- **Rollouts → Attempts**: An episode collects multiple attempts (success/failure), analogous to a group of rollouts for a single query.
+- **Semantic Advantage**: Instead of numerical advantages, the summarizer extracts a natural-language “why it worked” pattern by contrasting winners vs losers.
+- **Experience Update**: The library is updated with add/modify/delete decisions, mirroring the paper’s experience refinement step.
+- **Conditioned Policy**: `pull_experiences` retrieves relevant patterns and injects them into the context, shifting outputs without any parameter updates.
+
+Result: you get GRPO-like optimization effects through context and experience, not fine-tuning.
 
 ## Token Optimization
 
