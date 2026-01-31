@@ -1,0 +1,13 @@
+{
+  "id": "ep_20260131_171515_846647",
+  "task": "Build a simple async file downloader that supports resuming downloads and progress bars",
+  "pattern": "extraction_failed",
+  "keywords": [
+    "error",
+    "fallback"
+  ],
+  "insight": "Could not extract: Error code: 401 - {'error': {'message': 'User not ",
+  "attempts_count": 1,
+  "result": "Built async file downloader with resume support, progress bars, and concurrent download limiting",
+  "created_at": "2026-01-31T17:15:15.846742"
+}

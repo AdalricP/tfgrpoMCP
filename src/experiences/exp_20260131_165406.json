@@ -1,0 +1,13 @@
+{
+  "id": "ep_20260131_164358_377502",
+  "task": "Build a Python web scraper with CLI interface that fetches multiple URLs concurrently, extracts data with CSS selectors, and exports to JSON/CSV",
+  "pattern": "extraction_failed",
+  "keywords": [
+    "error",
+    "fallback"
+  ],
+  "insight": "Could not extract: Error code: 401 - {'error': {'message': 'User not ",
+  "attempts_count": 2,
+  "result": "Built a fully functional concurrent web scraper with CLI interface, async fetching with aiohttp, CSS selector-based extraction, and JSON/CSV export. All features tested and working.",
+  "created_at": "2026-01-31T16:43:58.377987"
+}

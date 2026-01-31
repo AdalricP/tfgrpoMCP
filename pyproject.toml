@@ -1,0 +1,22 @@
+[project]
+name = "tfgrpo"
+version = "0.1.0"
+description = "Training-Free GRPO experience server for MCP"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=0.9.0",
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "numpy>=1.24.0",
+]
+
+[project.scripts]
+tfgrpo = "tfgrpo.server:run"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["tfgrpo"]
